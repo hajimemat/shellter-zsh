@@ -1,0 +1,10 @@
+# PATH
+# PATH の内容と同期している配列変数 path も使える
+path=(
+	/bin
+	/usr/bin
+	/usr/local/bin
+	/sbin
+	/usr/sbin
+	/usr/local/sbin
+)
