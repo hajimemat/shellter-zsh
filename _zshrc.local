@@ -9,4 +9,9 @@ path=(
 	$path
 )
 
+export EDITOR=nvim
+alias vi=nvim
+alias vim=nvim
+alias vimdiff='nvim -d'
+
 [ -f ~/.zsh/functions/fzf.sh ] && source ~/.zsh/functions/fzf.sh

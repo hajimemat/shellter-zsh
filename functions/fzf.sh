@@ -17,7 +17,7 @@ function fzf-cdr() {
 alias agf="_agAndVim"
 function _agAndVim() {
     if [ -z "$1" ]; then
-        echo 'Usage: agg PATTERN'
+        echo 'Usage: agf PATTERN'
         return 0
     fi
     result=`ag $1 | fzf`
@@ -69,5 +69,18 @@ function tm() {
         tmux new-session -d -c $(pwd) -s $session
     fi
     tmux switch-client -t $session
+}
+
+function pacf() {
+    local pac
+
+    if [ -z "$1" ]; then
+        echo 'Usage: pacf PATTERN'
+        return 0
+    fi
+    result=`yay -Ss $1 | fzf`
+    if [ -n "$result" ]; then
+        yay -S $(echo $result | awk '{print $1}')
+    fi
 }
 
