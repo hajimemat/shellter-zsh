@@ -92,7 +92,7 @@ function rprompt-git-current-branch {
 
 ## 実態
 # hostnamecolor=$(hostname | od | tr ' ' '\n' | awk '{total = total + $1}END{print 30 + (total % 6)}')
-namecolor=$(whoami | od | tr ' ' '\n' | awk '{total = total + $1}END{print 128 + (total % 6)}')
+namecolor=$(whoami | od | tr ' ' '\n' | awk '{total = total + $1}END{print 128 + (total % 20)}')
 markcolor=$(hostname | od | tr ' ' '\n' | awk '{total = total + $1}END{print 80 + (total % 7)}')
 hostnamecolor=$(hostname | od | tr ' ' '\n' | awk '{total = total + $1}END{print 196 + (total % 20)}')
 CONSOLE_MARK='%F{'$markcolor'}%B%(!,#,$) >%b%f'
