@@ -1,3 +1,4 @@
+.PHONY: ~/.zsh/functions ~/.zshrc ~/.zshenv
 install:
 	make ~/.zsh/functions
 	make ~/.zshrc
