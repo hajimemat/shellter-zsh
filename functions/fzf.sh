@@ -1,7 +1,7 @@
 # FZFを利用した関数
 function s() {
     local layout
-    layout=$(ls -1 ~/.screenlayout | fzf --prompt='Layout >')
+    layout=$(ls --color=never -1 ~/.screenlayout | fzf --prompt='Layout >')
     sh ~/.screenlayout/$layout
     sh ~/.config/polybar/launch.sh 2> /dev/null 1> /dev/null
 }
