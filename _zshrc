@@ -92,9 +92,10 @@ function rprompt-git-current-branch {
 
 ## 実態
 # hostnamecolor=$(hostname | od | tr ' ' '\n' | awk '{total = total + $1}END{print 30 + (total % 6)}')
+markcolor=$(hostname | od | tr ' ' '\n' | awk '{total = total + $1}END{print 80 + (total % 7)}')
 hostnamecolor=$(hostname | od | tr ' ' '\n' | awk '{total = total + $1}END{print 196 + (total % 20)}')
 PROMPT=%F{$hostnamecolor}%B%m%b%f' '%B%F{178}\(%f%b%F{245}%n%f%B%F{178}\)%f%b
-CONSOLE_MARK='%F{044}%B>%b%f'
+CONSOLE_MARK='%F{'$markcolor'}%B>%b%f'
 PROMPT=$PROMPT' '%F{044}[%~]%f' `rprompt-git-current-branch`%f
 '$CONSOLE_MARK' '
 #RPROMPT='`rprompt-git-current-branch`'
