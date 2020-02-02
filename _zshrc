@@ -91,7 +91,8 @@ function rprompt-git-current-branch {
 }
 
 ## 実態
-PROMPT=%F{068}%B%m%b%f' '%B%F{178}\(%f%b%F{245}%n%f%B%F{178}\)%f%b
+hostnamecolor=$(hostname | od | tr ' ' '\n' | awk '{total = total + $1}END{print 30 + (total % 6)}')
+PROMPT=%F{$hostnamecolor}%B%m%b%f' '%B%F{178}\(%f%b%F{245}%n%f%B%F{178}\)%f%b
 CONSOLE_MARK='%F{044}%B>%b%f'
 PROMPT=$PROMPT' '%F{044}[%~]%f' `rprompt-git-current-branch`%f
 '$CONSOLE_MARK' '
@@ -109,7 +110,8 @@ zstyle ':completion:*' recent-dirs-insert both
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
 
-
+## カラー
+alias dispColors='for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo'
 
 ## 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local

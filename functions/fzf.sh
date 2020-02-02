@@ -84,3 +84,11 @@ function pacf() {
     fi
 }
 
+function vif() {
+    local file
+
+    result=`fzf`
+    if [ -n "$result" ]; then
+        vi $result
+    fi
+}
