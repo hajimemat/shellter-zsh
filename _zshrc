@@ -95,8 +95,8 @@ function rprompt-git-current-branch {
 namecolor=$(whoami | od | tr ' ' '\n' | awk '{total = total + $1}END{print 128 + (total % 20)}')
 markcolor=$(hostname | od | tr ' ' '\n' | awk '{total = total + $1}END{print 80 + (total % 7)}')
 hostnamecolor=$(hostname | od | tr ' ' '\n' | awk '{total = total + $1}END{print 196 + (total % 20)}')
-CONSOLE_MARK='%F{'$markcolor'}%B%(!,#,$) %(!,%F{yellow},%F{'$markcolor'})>%f%b%f'
-PROMPT='%F{$hostnamecolor}%B-- %m --%b%f %B%F{178}<(%f%b%F{'$namecolor'}%B%n%b%f%B%F{178})%f%b'
+CONSOLE_MARK='%(?,%F{'$markcolor'},%F{red})%B%(!,#,$) %(?,%(!,%F{yellow},%F{'$markcolor'}),%F{red})>%f%b%f'
+PROMPT='%F{$hostnamecolor}%B-- %m --%b%f %B%F{178}<(%f%b%(!,%F{red},%F{'$namecolor'})%B%n%b%f%B%F{178})%f%b'
 PROMPT=$PROMPT' '%F{068}%B%~%b%f' `rprompt-git-current-branch`%f
 '$CONSOLE_MARK' '
 #RPROMPT='`rprompt-git-current-branch`'
