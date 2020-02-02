@@ -6,10 +6,10 @@ install:
 ~/.zsh:
 	mkdir $@
 ~/.zsh/functions: ~/.zsh
-	ln -s $(realpath ./functions) $@
+	ln -sfv $(realpath ./functions) $@
 ~/.zshrc:
-	ln -s $(realpath ./_zshrc) $@
+	ln -sfv $(realpath ./_zshrc) $@
 ~/.zshenv:
-	ln -s $(realpath ./_zshenv) $@
+	ln -sfv $(realpath ./_zshenv) $@
 ~/.zshrc.local:
-	ln -s $(realpath ./_zshrc.local) $@
+	cp -v $(realpath ./_zshrc.local) $@
