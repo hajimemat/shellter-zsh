@@ -4,6 +4,7 @@ install:
 	make ~/.zshrc
 	make ~/.zshenv
 	make ~/.zshrc.local
+	make ~/.zplug
 ~/.zsh:
 	mkdir $@
 ~/.zsh/functions: ~/.zsh
@@ -14,3 +15,5 @@ install:
 	ln -sfv $(realpath ./_zshenv) $@
 ~/.zshrc.local:
 	cp -v $(realpath ./_zshrc.local) $@
+~/.zplug:
+	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
